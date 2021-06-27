@@ -1,26 +1,19 @@
-
-
-
-import 'package:hive/hive.dart';
-part 'getKotMenu.g.dart';
-
-
-class getKotMenu {
+class getArea {
   String message;
   int statusCode;
   String token;
-  List<KotMenu> data;
+  List<AreaTable> data;
 
-  getKotMenu({this.message, this.statusCode, this.token, this.data});
+  getArea({this.message, this.statusCode, this.token, this.data});
 
-  getKotMenu.fromJson(Map<String, dynamic> json) {
+  getArea.fromJson(Map<String, dynamic> json) {
     message = json['Message'];
     statusCode = json['StatusCode'];
     token = json['Token'];
     if (json['Data'] != null) {
-      data = new List<KotMenu>();
+      data = new List<AreaTable>();
       json['Data'].forEach((v) {
-        data.add(new KotMenu.fromJson(v));
+        data.add(new AreaTable.fromJson(v));
       });
     }
   }
@@ -37,24 +30,21 @@ class getKotMenu {
   }
 }
 
-class KotMenu {
+class AreaTable {
   int id;
   String name;
-  double rate;
 
-  KotMenu({this.id, this.name, this.rate});
+  AreaTable({this.id, this.name});
 
-  KotMenu.fromJson(Map<String, dynamic> json) {
+  AreaTable.fromJson(Map<String, dynamic> json) {
     id = json['Id'];
     name = json['Name'];
-    rate = json['Rate'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['Id'] = this.id;
     data['Name'] = this.name;
-    data['Rate'] = this.rate;
     return data;
   }
 }

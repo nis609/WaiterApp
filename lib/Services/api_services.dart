@@ -41,8 +41,8 @@ class ApiService  {
 
 
 
-//final String baseUrl ="https://4ee55b490237.ngrok.io/api";
-final String baseUrl = reactiveUrl.Url+"/api";
+final String baseUrl ="http://192.168.100.67:85/api";
+//final String baseUrl = reactiveUrl.Url+"/api";
   var headers = {
     'Content-Type': 'application/x-www-form-urlencoded'
   };
